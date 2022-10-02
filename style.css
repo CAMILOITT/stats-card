@@ -25,26 +25,95 @@
   box-sizing: border-box;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 60px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--VeryDarkBlueMainBackground);
   font-family: var(--fontFamilyInter);
+  position: relative;
 }
 .main {
-  width: clamp(250px, 80%, 900px);
+  max-width: 950px;
   background-color: var(--DarkDesaturatedBlueCardBackground);
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  display: grid;
-  grid-template-columns: repeat(2, 50%);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
 
-.main__image{}
+.main__information {
+  min-width: 250px;
+  max-width: 550px;
+  padding: 70px clamp(20px, 10%, 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.information__title {
+  color: var(--WhiteMainHeadingStats);
+}
+.title__strong {
+  color: var(--SoftVioletAccent);
+}
+.information__details {
+  color: var(--SlightlyTransparentWhiteStatHeadings);
+  font-size: var(--FontSize);
+  line-height: 25px;
+}
+
+.information__info {
+  margin-top: 60px;
+  color: var(--SlightlyTransparentWhiteStatHeadings);
+  display: flex;
+  gap: 30px;
+  justify-self: flex-end;
+}
+.companies__details,
+.templates__details,
+.queries__details {
+  text-transform: uppercase;
+  font-family: var(--fontFamilyLexand);
+  font-size: var(--FontSize);
+}
+.details__number {
+  color: var(--WhiteMainHeadingStats);
+  font-weight: bold;
+  font-size: 2rem;
+}
+.main__imagen {
+  min-width: max(240px, 400px);
+  min-height: 373px;
+  background: var(--SoftVioletAccent);
+  background-image: url(./images/image-header-mobile.jpg);
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .information__title,
+  .information__details {
+    text-align: center;
+  }
+  .information__info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .main__imagen {
+    width: 100%;
+  }
+}
 
 .attribution {
   font-size: 11px;
